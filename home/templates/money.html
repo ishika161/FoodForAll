@@ -13,6 +13,13 @@
     <a href="{% url 'donate' %}">Donate</a>
 
     <h1>Money Donate</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+        {{moneyForm.as_table}}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
     
     
 </body>

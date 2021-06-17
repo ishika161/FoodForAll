@@ -13,9 +13,20 @@
     <a href="{% url 'donate' %}">Donate</a>
 
     <h1>Donate</h1>
-    <a href="{% url 'food' %}">Food Donate</a>
-    <a href="{% url 'money' %}">Donate Money</a>
-    <a href="{% url 'distributor' %}"><button>Be a Distributor</button></a>
+    <a href="{% url 'food' %}">Food Donate</a><br>
+
+    <a href="{% url 'money' %}">Donate Money</a><br>
     
+    {% if is_distributor %}
+        <a href="{% url 'unsuscribe' %}"><button>Unsuscribe</button></a>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{suscribe_form.as_table}}
+            </table>
+            <input type="submit" value="Be a Distributor">
+        </form>
+    {% endif %}
 </body>
 </html>

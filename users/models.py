@@ -3,4 +3,4 @@ from django.contrib.auth.models import User
 
 class Members(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    distributor = models.BooleanField(default=False)
+    location = models.CharField(max_length=300)
