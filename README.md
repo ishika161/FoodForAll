@@ -37,7 +37,7 @@ The actual scenario to which this product aims to is to help the starving people
 
 ## Demo video
 
-![alt text](https://vimeo.com/564753733)
+https://vimeo.com/564753733
 
 ## The architecture
 
