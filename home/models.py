@@ -22,5 +22,11 @@ class moneyDonation(models.Model):
     amount = models.PositiveBigIntegerField()
     contactno = models.PositiveBigIntegerField()
 
+class contact(models.Model):
+    name = models.CharField(max_length=30)
+    sender_email = models.EmailField(max_length=30)
+    body = models.CharField(max_length=300)
+    
+
 
 

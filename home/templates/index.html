@@ -1,0 +1,309 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'about' %}">About Us</a>
+    <a href="{% url 'donate' %}">Donate</a>
+</body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href=" {% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Feed Me
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+  <link href="{% static 'demo/demo.css' %}" rel="stylesheet" />
+</head>
+
+<body class="landing-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="#">
+          Feed Me
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#service" class="nav-link">
+              <i class="material-icons">apps</i> About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'donate' %}">
+              <i class="material-icons"></i> Donate
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="material-icons">logout</i> Logout
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">
+                <i class="material-icons">login</i> Login/SignUp
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('{% static 'img/new.png' %}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="title">World's global hunger is a disaster.</h1>
+          <h4>Billions of people around the world live in extreme starvation.The extremely poor live without support, on the sidelines, watching economic growth and prosperity pass them by. They are shunned by the world economy. They live lives abundant in scarcity. Without enough food, access to clean water, or proper sanitation.</h4>
+          <br>
+          <a href="https://www.youtube.com/" target="_blank" class="btn btn-danger btn-raised btn-lg">
+            <i class="fa fa-play"></i> Watch video
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container" id="mission">
+      <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">OUR MISSION</h2>
+            <h5 class="description">We are here to come up with a solution to the above mentioned problem.The actual scenario to which this product aims to is to help the starving people by providing them with adequate amount of food.There are many such instances where we have a bulk quantity of food remain unused.Our product deals to handle similar sort of issue,we provide a platform for the people wanting to donate some food or groceries.They can contact us by filling up the details form below,remember that "If your food is plenty,spare some for the hungry.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="service">
+      <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">About Us</h2>
+            <h5 class="description">We believe in living for today-and tomorrow! Because our decisions have a lasting impact, we make 
+them thoughtfully .Out mission has been to help people live a more natural life and so goes our 
+group title “The Green Panthers".</h5>
+            <h5 class="description">We the students of Meerut Institute of Engineering and 
+Technology have teamed up to make it happen, all very eager to showcase their skills. We are here 
+to implement a solution for the global hunger problem by setting up a non-profit service to fill the 
+gaps between the needy and the people willing to donate. Concerned donors can reach out to our 
+service and can help all those in need by supplying leftover food packets or unused groceries. 
+Special recognition to our team members including Hardik Sharma,Kashish Vaish,Ishika garg,Tulika 
+Malik and Vansika jain. But for their support, it could be a tougher task to complete this project.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        {% comment %} <div class="features">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons">chat</i>
+                </div>
+                <h4 class="info-title">Free Chat</h4>
+                <p>You can contact us freely in case of any query,the individuals willing to donate can fill up the given form and take a step forward along this path of greatfulness.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-success">
+                  <i class="material-icons">verified_user</i>
+                </div>
+                <h4 class="info-title">Verified Users</h4>
+                <p>The users who are there with us for a long time,thank you for your support,looking forward to see a bizzare change in the count.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-danger">
+                  <i class="material-icons">supervised_user_circle</i>
+                </div>
+                <h4 class="info-title">Past Works</h4>
+                <p>Have been involved in same kind of deeds,doing a bit on our part.</p>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+      {% comment %} <div class="section text-center">
+        <h2 class="title">Here is our team</h2>
+        <div class="team" id="team">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="{% static 'img/faces/marc.jpg' %}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Hardik Sharma
+                    <br>
+                    <small class="card-description text-muted">Creator</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">Whoever is kind to the poor lends to the Lord, and he will reward them for what they have done, keep donating keep growing. Here is the
+                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="{% static 'img/faces/avatar.jpg' %}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Kashish Vaish
+                    <br>
+                    <small class="card-description text-muted">Developer</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="{% static 'img/faces/kendall.jpg' %}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Vansika Jain
+                    <br>
+                    <small class="card-description text-muted">Content Writer</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> {% endcomment %}
+      <div class="section section-contacts" id="contact">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="text-center title">Contact Us</h2>
+            <h4 class="text-center description">"Whoever is kind to the poor lends to the Lord, and he will reward them for what they have done, keep donating keep growing".</h4>
+            <form class="contact-form" method="POST">
+              {% csrf_token %}
+              {{form|crispy}}
+              {% comment %} <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Name</label>
+                    <input type="text" class="form-control" name="name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Email</label>
+                    <input type="email" class="form-control" name="sender_email">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+                <textarea type="text" class="form-control" rows="4" id="exampleMessage" name="body"></textarea>
+              </div> {% endcomment %}
+              <div class="row">
+                <div class="col-md-4 ml-auto mr-auto text-center">
+                  <input type="submit" class="btn btn-primary btn-raised" value="Send Message">                    
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="#team">
+              Creative Team
+            </a>
+          </li>
+          <li>
+            <a href="#team">
+              About Us
+            </a>
+          </li>
+          {% comment %} <li>
+            <a href="index.html">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Licenses
+            </a>
+          </li> {% endcomment %}
+        </ul>
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made <i class="material-icons">favorite</i> by
+        <a href="#team">Hardik Sharma</a>.
+      </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <!--	Plugin for the Datepicker, full index here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full index here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+</body>
+
+</html>

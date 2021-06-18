@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,4 +32,269 @@
         </form>
     {% endif %}
 </body>
+</html> {% endcomment %}
+<!--
+=========================================================
+Material Kit - v2.0.7
+=========================================================
+Product Page: https://www.creative-tim.com/product/material-kit
+Copyright 2020 Creative Tim (https://www.creative-tim.com/)
+Coded by Creative Tim
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href=" {% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Donate - Feed Me
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+  <link href="{% static 'demo/demo.css' %}" rel="stylesheet" />
+</head>
+
+<body class="profile-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="{% url 'homepage' %}">
+          Feed Me </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="{% url 'homepage' %}#service" class="nav-link">
+              <i class="material-icons">apps</i> About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'homepage' %}">
+              <i class="material-icons">home</i> Back to Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" data-parallax="false" style="background-image: url('{% static 'img/ben-white-83tkHLPgg2Q-unsplash.jpg' %}'); height: 45rem;">
+    <div class="container">
+      {% comment %} <div class="row"> {% endcomment %}
+        <div class="col-md-6">
+          <h1 class="title">Donate with Us</h1>
+          <h4>The value of life is not in its duration, but in its donation. You are not important because of how long you live, you are important because of how effective you live.
+            The measure of life is not its duration, but its donation.
+          </h4>
+        </div>
+        <div class="col-md-6 float-right">
+          {% if is_distributor %}
+            <h4>Thanks For Volunteering as a Distributor</h4>
+            <a href="{% url 'unsuscribe' %}"><button class="btn btn-danger mb-5">Unsuscribe</button></a>
+          {% else %}
+            <h1 class="title">Be a Distributor</h1>
+            <h4>Help us to deliver food packages to the needy.</h4>
+
+            <form method="POST">
+                {% csrf_token %}
+                    {{suscribe_form|crispy}}
+                <input type="submit" class="btn btn-danger mb-5" value="Be a Distributor">
+            </form>
+          {% endif %}
+          
+        </div>
+      {% comment %} </div> {% endcomment %}
+    </div></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <h4 class="card-title" style="margin-left: 25rem; padding: 2rem;">Help with us by any means</h4>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+            <div class="card card-login">
+              <form class="form" method="POST" action="{% url 'food' %}">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Donate Food</h4>
+                </div>
+                <div class="card-body" >
+                  {% comment %} <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Name...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">phone</i>
+                      </span>
+                    </div>
+                    <input type="email" class="form-control" placeholder="Contact No...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">edit_location</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="State...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">location_city</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="City...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">filter_9_plus</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Quantity...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">merge_type</i>
+                      </span>
+                    </div>
+                    <select class="form-control">
+                      <option class="form-control" value="raw">Raw</option>
+                      <option class="form-control" value="cooked">Cooked</option>
+                    </select>
+                  </div> {% endcomment %}
+                  {% csrf_token %}
+                  {{foodForm|crispy}}
+                </div>
+                <div class="footer text-center" >
+                <button class="btn btn-success mb-5" type="submit">Donate</button>    
+            
+                  {% comment %} <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Donate</a> {% endcomment %}
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+            <div class="card card-login">
+              <form class="form" method="POST" action="{% url 'money' %}">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Donate Money</h4>
+                </div>
+                <div class="card-body" >
+                {% comment %} <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Name...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">phone</i>
+                      </span>
+                    </div>
+                    <input type="email" class="form-control" placeholder="Contact No...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">edit_location</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="State...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">location_city</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="City...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">attach_money</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Amount...">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">merge_type</i>
+                      </span>
+                    </div>
+                    <select class="form-control">
+                      <option class="form-control" value="raw">Cash</option>
+                      <option class="form-control" value="cooked">Online</option>
+                    </select>
+                  </div> {% endcomment %}
+                  {% csrf_token %}
+                  {{moneyForm|crispy}}
+                </div>
+                <div class="footer text-center" >
+                  <button class="btn btn-success mb-5" type="submit">Donate</button>    
+
+                  {% comment %} <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Donate</a> {% endcomment %}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="{% url 'homepage' %}#team">
+              Creative Team
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'homepage' %}#team">
+              About Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made with <i class="material-icons">favorite</i> by
+        <a href="{% url 'homepage' %}#team" target="_blank">Hardik Sharma</a> for a better web.
+      </div>
+    </div>
+  </footer>
+ <!--   Core JS Files   -->
+  <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <!--	Plugin for the Datepicker, full index here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full index here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+</body>
+
 </html>

@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
-
-<html>
+{% load static %}
+{% comment %} <html>
 <head>
     <title>Login - FoodForAll</title>
 </head>
@@ -16,4 +16,140 @@
         </form>
     </div>    
 </body>
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href=" {% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Login - Feed Me
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+  <link href="{% static 'demo/demo.css' %}" rel="stylesheet" />
+</head>
+
+<body class="login-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="{% url 'homepage' %}">
+          Feed Me </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="{% url 'homepage' %}#service" class="nav-link">
+              <i class="material-icons">apps</i> About Us
+            </a>
+          </li>
+          {% comment %} <li class="nav-item">
+            <a class="nav-link" href="../docs/index.html" target="_blank">
+              <i class="material-icons">content_paste</i> Documentation
+            </a>
+          </li> {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'homepage' %}" >
+              <i class="material-icons">home</i> Back to Dashboard
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" style="background-image: url('{% static 'img/atul-0f3bZHXZSz8-unsplash.jpg' %} '); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <form class="form" method="POST">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Login</h4>
+              </div>
+              {% comment %} <p class="description text-center">Or Be Classical</p> {% endcomment %}
+              <div class="card-body"  style="padding-bottom: 2.5rem;">
+                {% comment %} <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="First Name...">
+                </div> {% endcomment %}
+                {% comment %} <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">mail</i>
+                    </span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="Email...">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password...">
+                </div> {% endcomment %}
+                {% csrf_token %}
+                {{form|crispy}}
+                <button class="btn btn-primary mb-5" type="submit">Login</button>
+              </div>
+              <div class="footer text-center" style="padding-bottom: 2.5rem;">
+                <a href="{% url 'register' %}" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer footer-default">
+      <div class="container">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="{% url 'homepage' %}#team">
+                Creative Team
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'homepage' %}#team">
+                About Us
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, made with <i class="material-icons">favorite</i> by
+          <a href="{% url 'homepage' %}#team" target="_blank">Hardik Sharma</a> for a better web.
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <!--	Plugin for the Datepicker, full index here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full index here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+</body>
+
 </html>

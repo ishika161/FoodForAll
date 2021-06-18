@@ -3,11 +3,19 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from users.models import Members
-from .forms import FoodDonationForm, MoneyDonateForm
+from .forms import FoodDonationForm, MoneyDonateForm, ContactForm
 from users.forms import SubscriptionForm
 
 def homepage(request):
-    return render(request, 'home.html')
+    if request.method == "POST":
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            instance = form.save()
+        return redirect('homepage')
+        
+
+    else:
+        return render(request, 'index.html', {'form': ContactForm})
 
 def about(request):
     return render(request, "about.html")
@@ -28,34 +36,26 @@ def donate(request):
         else:
             is_distributor = False
         print(is_distributor)
-        return render(request, "donate.html", {'is_distributor': is_distributor, 'suscribe_form': SubscriptionForm})
+        return render(request, "donate.html", {'is_distributor': is_distributor, 'suscribe_form': SubscriptionForm, 'foodForm': FoodDonationForm, 'moneyForm': MoneyDonateForm})
 
 @login_required
 def food(request):
-    if request.method == "POST":
-        form = FoodDonationForm(request.POST or None)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.manager = request.user
-            instance.save()
-        messages.success(request,('Food Donation Successful, Wait till someone arrives to help!'))    
-        return render(request, 'food.html', {'foodForm': FoodDonationForm})    
-
-    else:    
-        return render(request, "food.html", {'foodForm': FoodDonationForm})
+    form = FoodDonationForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.manager = request.user
+        instance.save()
+    messages.success(request,('Food Donation Successful, Wait till someone arrives to help!'))  
+    return redirect('donate')  
 
 @login_required
 def money(request):
-    if request.method == "POST":
-        form = MoneyDonateForm(request.POST or None)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.manager = request.user
-            instance.save()
-        return render(request, 'money.html', {'moneyForm': MoneyDonateForm})    
-
-    else:  
-        return render(request, 'money.html', {'moneyForm': MoneyDonateForm})    
+    form = MoneyDonateForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.manager = request.user
+        instance.save()
+    return redirect('donate')      
 
 
 @login_required
