@@ -36,7 +36,7 @@ The actual scenario to which this product aims to is to help the starving people
 
 
 ## Demo video
-
+[![Watch the video](https://github.com/kashishvaish/FoodForAll/blob/main/screenshot.png?raw=true)](https://vimeo.com/564753733)
 https://vimeo.com/564753733
 
 ## The architecture
