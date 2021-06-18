@@ -37,7 +37,7 @@ The actual scenario to which this product aims to is to help the starving people
 
 ## Demo video
 
-[![Watch the video](https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/readme/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://vimeo.com/564753733)
 
 ## The architecture
 
