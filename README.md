@@ -37,11 +37,11 @@ The actual scenario to which this product aims to is to help the starving people
 
 ## Demo video
 
-[![Watch the video](https://vimeo.com/564753733)
+https://vimeo.com/564753733
 
 ## The architecture
 
-![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
+![alt text](https://github.com/kashishvaish/FoodForAll/blob/main/workflow.png?raw=true)
 
 1. The user navigates to the site and gets logged in.
 2. Watson Assistant helps in providing customers with fast, straightforward and accurate answers to their questions.
